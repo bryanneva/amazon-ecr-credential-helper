@@ -41,16 +41,16 @@ func TestExtractRegistry(t *testing.T) {
 		registry  *Registry
 		hasError  bool
 	}{{
-		serverURL: "https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/blah/blah",
+		serverURL: "https://123456789012.dkr.ecr.us-iso-east-1.c2s.ic.gov/v2/blah/blah",
 		registry: &Registry{
 			ID:      "123456789012",
 			FIPS:    false,
-			Region:  "us-east-1",
+			Region:  "us-iso-east-1",
 			Service: ServiceECR,
 		},
 		hasError: false,
 	}, {
-		serverURL: "123456789012.dkr.ecr.us-west-2.amazonaws.com",
+		serverURL: "123456789012.dkr.ecr.us-west-2.c2s.ic.gov",
 		registry: &Registry{
 			ID:      "123456789012",
 			FIPS:    false,
@@ -59,7 +59,7 @@ func TestExtractRegistry(t *testing.T) {
 		},
 		hasError: false,
 	}, {
-		serverURL: "210987654321.dkr.ecr.cn-north-1.amazonaws.com.cn/foo",
+		serverURL: "210987654321.dkr.ecr.cn-north-1.c2s.ic.gov.cn/foo",
 		registry: &Registry{
 			ID:      "210987654321",
 			FIPS:    false,
@@ -68,7 +68,7 @@ func TestExtractRegistry(t *testing.T) {
 		},
 		hasError: false,
 	}, {
-		serverURL: "123456789012.dkr.ecr-fips.us-gov-west-1.amazonaws.com",
+		serverURL: "123456789012.dkr.ecr-fips.us-gov-west-1.c2s.ic.gov",
 		registry: &Registry{
 			ID:      "123456789012",
 			FIPS:    true,
